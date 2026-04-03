@@ -1,0 +1,122 @@
+[
+    {
+        "name": "AWS Access Key ID",
+        "risk": "Full access to AWS resources, allowing unauthorized users to deploy, modify, or delete infrastructure and services, leading to significant financial and security risks.",
+        "match": "AKIA[0-9A-Z]{16}",
+        "severity": "high"
+    },
+    {
+        "name": "AWS Secret Access Key",
+        "risk": "Allows full programmatic access to AWS resources, potentially exposing sensitive data and enabling malicious activities like data deletion, system compromise, and unauthorized billing.",
+        "match": "(?<=AWS secret access key = )(?=[A-Za-z0-9/+]{40}$)[A-Za-z0-9/+]{40}",
+        "severity": "high"
+    },
+    {
+        "name": "Google API Key",
+        "risk": "Exposes access to Google Cloud services, which may result in unauthorized use of APIs, leading to potential data exposure or billing issues, but typically doesn't allow full control of the Google Cloud account.",
+        "match": "AIza[0-9A-Za-z-_]{35}",
+        "severity": "medium"
+    },
+    {
+        "name": "GitHub Token",
+        "risk": "Grants access to private repositories and other sensitive GitHub resources, allowing unauthorized changes to source code, potentially exposing vulnerabilities and compromising project integrity.",
+        "match": "ghp_[A-Za-z0-9]{36}",
+        "severity": "high"
+    },
+    {
+        "name": "Stripe Secret Key",
+        "risk": "Full access to payment processing, including making charges, issuing refunds, and modifying customer data. Exposing this key can lead to fraudulent transactions and financial theft.",
+        "match": "sk_(live|test)_[0-9a-zA-Z]{24}",
+        "severity": "high"
+    },
+    {
+        "name": "PayPal Access Token",
+        "risk": "Provides access to PayPal’s payment systems and user data. Exposing this token can lead to unauthorized transactions, data breaches, and financial loss.",
+        "match": "access_token=[A-Za-z0-9_-]{150,}",
+        "severity": "high"
+    },
+    {
+        "name": "Azure Storage Account Key",
+        "risk": "Grants full access to Azure Storage services, including the ability to read, modify, and delete data. Exposure can result in data loss, unauthorized access, and potential service disruption.",
+        "match": "[0-9a-zA-Z+/=]{88}",
+        "severity": "high"
+    },
+    {
+        "name": "Slack API Token",
+        "risk": "Allows access to Slack workspace features, including bot actions and channel messages. Unauthorized access can lead to communication disruptions and potential data exposure within a team or organization.",
+        "match": "xox[pb]-([0-9a-zA-Z]{10,}){2,}",
+        "severity": "high"
+    },
+    {
+        "name": "Discord Bot Token",
+        "risk": "Full control over a Discord bot. Can be used to manipulate channels, messages, and scrape user data across all servers the bot is in.",
+        "match": "[MN][A-Za-z\\d]{23}\\.[\\w-]{6}\\.[\\w-]{27}",
+        "severity": "high"
+    },
+    {
+        "name": "Twilio Account SID",
+        "risk": "Identification for Twilio accounts. When combined with an Auth Token, allows sending SMS, making calls, and accessing communication logs.",
+        "match": "AC[a-z0-9]{32}",
+        "severity": "medium"
+    },
+    {
+        "name": "Twilio Auth Token",
+        "risk": "Grants full control over Twilio services. Can lead to toll fraud, message intercepting, and unauthorized account charges.",
+        "match": "(?i)twilio.*['\"]?([a-f0-9]{32})['\"]?",
+        "severity": "high"
+    },
+    {
+        "name": "SendGrid API Key",
+        "risk": "Allows sending emails as the service. Often used for phishing campaigns and bypassing spam filters using the victim's domain reputation.",
+        "match": "SG\\.[a-zA-Z0-9_-]{22}\\.[a-zA-Z0-9_-]{43}",
+        "severity": "high"
+    },
+    {
+        "name": "Mailgun API Key",
+        "risk": "Grants access to Mailgun email services. Can be used for unauthorized email broadcasting and viewing sensitive mailing lists.",
+        "match": "key-[a-f0-9]{32}",
+        "severity": "high"
+    },
+    {
+        "name": "Heroku API Key",
+        "risk": "Allows full control over Heroku applications, including environment variables, database access, and deployment of malicious code.",
+        "match": "[hH]eroku.*[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+        "severity": "high"
+    },
+    {
+        "name": "Encrypted Private Key",
+        "risk": "Exposure of RSA/SSH private keys. Even if encrypted, they are subject to brute-force attacks and can lead to server compromise.",
+        "match": "-----BEGIN [A-Z\\s]+ PRIVATE KEY-----",
+        "severity": "high"
+    },
+    {
+        "name": "Google OAuth Client Secret",
+        "risk": "Critical for OAuth flows. If stolen, attackers can perform unauthorized API operations on behalf of the application and its users.",
+        "match": "GOCSPX-[a-zA-Z0-9_-]{28}",
+        "severity": "high"
+    },
+    {
+        "name": "Firebase API Key",
+        "risk": "Grants access to Firebase backend services. Depending on rules, it may allow read/write access to databases and storage buckets.",
+        "match": "AIza[0-9A-Za-z\\\\-_]{35}",
+        "severity": "medium"
+    },
+    {
+        "name": "PostgreSQL Connection String",
+        "risk": "Exposes database credentials, host, and port. Directly leads to data breaches, unauthorized data modification, and potential ransomware scenarios.",
+        "match": "postgres://[A-Za-z0-9_-]+:[A-Za-z0-9_-]+@[A-Za-z0-9.-]+:[0-9]+/[A-Za-z0-9_-]+",
+        "severity": "high"
+    },
+    {
+        "name": "Potential S3 Bucket Discovery (Amazon)",
+        "risk": "Potential files leak. Publicly accessible S3 buckets can lead to data exfiltration, sensitive document exposure, and unauthorized file uploads.",
+        "match": "[a-z0-9.-]+\\.s3\\.([a-z0-9.-]+\\.)?amazonaws\\.com",
+        "severity": "low"
+    },
+    {
+        "name": "Potential S3 Bucket Discovery (Global)",
+        "risk": "Potential files shinanigan leak. Generic s3-prefixed domains often point to cloud storage that may be misconfigured for public access.",
+        "match": "s3\\.[a-z0-9.-]+\\.[a-z]{2,}",
+        "severity": "low"
+    }
+]

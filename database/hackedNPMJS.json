@@ -1,0 +1,36 @@
+[
+    {
+        "name": "axios",
+        "versions": [
+            {
+                "version": "1.14.1",
+                "risk": "RAT Implemented",
+                "references": [
+                    "https://www.aikido.dev/blog/axios-npm-compromised-maintainer-hijacked-rat"
+                ]
+            },
+            {
+                "version": "0.30.4",
+                "risk": "RAT Implemented",
+                "references": [
+                    "https://www.aikido.dev/blog/axios-npm-compromised-maintainer-hijacked-rat"
+                ]
+            },
+            {
+                "version": "0.21.0",
+                "risk": "Prototype pollution vulnerability (CVE-2020-28168)",
+                "references": [
+                    "https://www.sentinelone.com/vulnerability-database/cve-2020-28168/",
+                    "https://app.opencve.io/cve/CVE-2020-28168"
+                ]
+            },
+            {
+                "version": "0.18.1",
+                "risk": "Denial of Service (DoS) vulnerability",
+                "references": [
+                    "https://github.com/axios/axios/issues/2164"
+                ]
+            }
+        ]
+    }
+]

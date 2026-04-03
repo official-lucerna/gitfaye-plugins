@@ -1,0 +1,135 @@
+[
+    {
+        "name": "Exposed config.toml",
+        "risk": "Config.toml (usually used by NCryptsion) may contain sensitive keys.",
+        "severity": "high",
+        "depth": 1,
+        "files": [
+            "config.toml"
+        ]
+    },
+    {
+        "name": "Exposed .env",
+        "risk": ".env file may contain sensitive environment variables like API keys, DB credentials, and tokens.",
+        "severity": "high",
+        "depth": 1,
+        "files": [
+            ".env",
+            ".env.local"
+        ]
+    },
+    {
+        "name": "Exposed private.key",
+        "risk": "Private key files (e.g., private.key) can be used for decrypting sensitive data or gaining unauthorized access.",
+        "severity": "critical",
+        "depth": 1,
+        "files": [
+            "private.key"
+        ]
+    },
+    {
+        "name": "Exposed .ssh/id_rsa",
+        "risk": "SSH private key files (id_rsa) can grant access to servers or services if exposed.",
+        "severity": "critical",
+        "depth": 1,
+        "files": [
+            ".ssh/id_rsa"
+        ]
+    },
+    {
+        "name": "Exposed database credentials",
+        "risk": "Database credential files (e.g., db_config.json, database.yml) may contain access credentials to databases.",
+        "severity": "high",
+        "depth": 1,
+        "files": [
+            "db_config.json",
+            "database.yml"
+        ]
+    },
+    {
+        "name": "Exposed api_keys.json",
+        "risk": "API keys stored in JSON files could provide unauthorized access to external services.",
+        "severity": "high",
+        "depth": 1,
+        "files": [
+            "api_keys.json"
+        ]
+    },
+    {
+        "name": "Exposed secret.json",
+        "risk": "Secret files like secret.json may contain private information, including tokens, credentials, or access keys.",
+        "severity": "critical",
+        "depth": 1,
+        "files": [
+            "secret.json"
+        ]
+    },
+    {
+        "name": "Exposed .gitconfig",
+        "risk": ".gitconfig can contain sensitive information such as user credentials and repository configurations.",
+        "severity": "medium",
+        "depth": 1,
+        "files": [
+            ".gitconfig"
+        ]
+    },
+    {
+        "name": "Exposed Docker credentials",
+        "risk": "Docker configuration files (e.g., config.json, docker-compose.yml) may store credentials and access tokens.",
+        "severity": "high",
+        "depth": 1,
+        "files": [
+            "config.json",
+            "docker-compose.yml"
+        ]
+    },
+    {
+        "name": "Exposed AWS credentials",
+        "risk": "AWS credential files (e.g., credentials, config) could lead to unauthorized access to AWS services and data.",
+        "severity": "critical",
+        "depth": 1,
+        "files": [
+            "credentials",
+            "config"
+        ]
+    },
+    {
+        "name": "Exposed JWT_SECRET",
+        "risk": "JWT_SECRET (typically stored in environment files or config files) could allow attackers to forge valid tokens.",
+        "severity": "high",
+        "depth": 1,
+        "files": [
+            "jwt_secret"
+        ]
+    },
+    {
+        "name": "Exposed sensitive logs",
+        "risk": "Log files may contain sensitive information like stack traces, passwords, or API tokens.",
+        "severity": "high",
+        "depth": 1,
+        "files": [
+            "app.log",
+            "error.log",
+            "access.log"
+        ]
+    },
+    {
+        "name": "Exposed SSL certificates",
+        "risk": "SSL certificates (e.g., .crt, .pem) could be used for malicious purposes if private keys are also exposed.",
+        "severity": "high",
+        "depth": 1,
+        "files": [
+            "ssl_certificate.crt",
+            "ssl_certificate.pem"
+        ]
+    },
+    {
+        "name": "Exposed .map files",
+        "risk": "Source maps can expose the original source code, including potential sensitive logic, variable names, and comments that shouldn't be visible in production.",
+        "severity": "high",
+        "depth": 1,
+        "files": [
+            "*.map"
+        ]
+    }
+]
