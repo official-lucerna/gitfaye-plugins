@@ -4,7 +4,7 @@ A collection of GitFaye plugins. These plugins are for scanners, checkers and mo
 # ⚙️ Installations
 ## Github
 ```
-git clone https://github.com/firstdecree/gitfaye-plugins
+git clone https://github.com/official-lucerna/gitfaye-plugins
 ```
 
 ## NpmJS

@@ -1,10 +1,13 @@
+# Metadata
 name: Create GitHub Release
 
+# Triggers
 on:
   push:
     tags:
       - 'v*.*.*'
 
+# Core
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -18,9 +21,9 @@ jobs:
           git config --global user.email "ncryptsion@proton.me"
           git config --global user.name "NCryptsion"
 
-      - name: Create zip of the repository
+      - name: Create zip of the repository (excluding .gitignore files)
         run: |
-          zip -r release.zip .
+          git ls-files | zip release.zip -@
 
       - name: Upload release zip
         uses: softprops/action-gh-release@v1
